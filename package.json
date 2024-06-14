@@ -1,17 +1,22 @@
 {
-  "name": "electron",
+  "name": "combina",
   "version": "1.0.0",
   "main": "index.js",
+  "icon": "icon.svg",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Pie Runners",
+    "email": "gskids053@chungbuk.ac.kr"
+  },
+  "license": "",
   "description": "",
   "devDependencies": {
     "electron": "^30.1.0",
-    "electron-packager": "^17.1.2"
+    "electron-packager": "^17.1.2",
+    "electron-builder": "^20.28.1"
   }
 }
