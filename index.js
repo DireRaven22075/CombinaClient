@@ -8,10 +8,14 @@ function createWindow() {
     height: 1080,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    icon: path.join(__dirname, 'icon.svg')
   });
   mainWindow.setAspectRatio(16 / 9);
-  mainWindow.loadURL('http://localhost:8000'); // Django 서버가 실행 중인 URL
+  mainWindow.loadURL('http://localhost:8000');
+  mainWindow.on('closed', () => {
+    app.quit();
+  });
 }
 
 app.whenReady().then(() => {
@@ -34,6 +38,9 @@ ipcMain.on('open-external', (event, url) => {
 });
 ipcMain.on('minimize', () => {
   BrowserWindow.getFocusedWindow().minimize();
+});
+ipcMain.on('close', () => {
+  BrowserWindow.getFocusedWindow().close();
 });
 ipcMain.on('maximize', () => {
   const window = BrowserWindow.getFocusedWindow();
