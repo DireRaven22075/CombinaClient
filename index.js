@@ -9,10 +9,11 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
-    icon: path.join(__dirname, 'icon.svg')
   });
   mainWindow.setAspectRatio(16 / 9);
   mainWindow.loadURL('http://localhost:8000');
+  mainWindow.setMenuBarVisibility(false);
+  mainWindow.removeMenu();
   mainWindow.on('closed', () => {
     app.quit();
   });
